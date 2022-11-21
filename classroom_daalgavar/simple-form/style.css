@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    width: 400px;
+    border: 1px solid gray;
+    padding: 2rem;
+    border-radius: 20px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+form label{
+    width: 20%;
+    text-align: end;
+}
+input,textarea{
+    width: 75%;
+}
+.button-area{
+    width: 90%;
+}
+button{
+    margin: 0 auto;
+    display: block;
+}

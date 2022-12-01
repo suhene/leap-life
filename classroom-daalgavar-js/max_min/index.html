@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 5, b = 5, c = 7,max,min;
+        if(a > b && a > c && b > c){
+            max = a;
+            console.log("max: " + max);
+        }else if(b > a && b > c){
+            max = b;
+            console.log("max: " + max);
+        }else if(c > a && c > b){
+            max = c;
+            console.log("max: " + max);
+        }else if(a == b && a == c){
+            console.log("all numbers are equal: " + a + " " + b + " " + c);
+        }else if(a == b && c > a){
+            max = c;
+            min = a;
+            console.log("a and b are equal");
+            console.log("min: " + min);
+            console.log("max: " + max);
+        }else if(a == c && b > a){
+            max = b;
+            min = a;
+            console.log("a and c are equal");
+            console.log("min: " + min);
+            console.log("max: " + max);
+        }else if(a == c){
+            console.log("a and c are equal");
+        }
+        
+        
+    </script>
+</body>
+</html>

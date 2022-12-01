@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let teamA = (96+108+89)/3;
+        let teamB = (88+91+110)/3;
+        if(teamA > teamB){
+            console.log("team A wins!");
+        }else if(teamA == teamB){
+            console.log("Tie");
+        }else if(teamA < 100){
+            console.log("Team A has under points on 100");
+        }else if(teamB < 100){
+            console.log("Team B has under points on 100");
+        }else if(teamA < 100 && teamB < 100){
+            console.log("both teams has under points on 100");
+        }else{
+            console.log("team B wins!");
+        }
+    </script>
+</body>
+</html>

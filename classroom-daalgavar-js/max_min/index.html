@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let a = 5, b = 5, c = 7,max,min;
-        if(a > b && a > c && b > c){
-            max = a;
-            console.log("max: " + max);
-        }else if(b > a && b > c){
-            max = b;
-            console.log("max: " + max);
-        }else if(c > a && c > b){
-            max = c;
-            console.log("max: " + max);
-        }else if(a == b && a == c){
-            console.log("all numbers are equal: " + a + " " + b + " " + c);
-        }else if(a == b && c > a){
-            max = c;
-            min = a;
-            console.log("a and b are equal");
-            console.log("min: " + min);
-            console.log("max: " + max);
-        }else if(a == c && b > a){
-            max = b;
-            min = a;
-            console.log("a and c are equal");
-            console.log("min: " + min);
-            console.log("max: " + max);
-        }else if(a == c){
-            console.log("a and c are equal");
+      let a = 4,
+        b = 4,
+        c = 2,
+        max,
+        min;
+      if (a >= b && a >= c) {
+        max = a;
+        if (b > c) {
+          min = c;
+        } else {
+          min = b;
         }
-        
-        
+      } else if (b >= a && b >= c) {
+        max = b;
+        if (a > c) {
+          min = c;
+        } else {
+          min = a;
+        }
+      } else if (c >= a && c >= b) {
+        max = c;
+        if (a > b) {
+          min = b;
+        } else {
+          min = a;
+        }
+      } else if (a == b && a == c) {
+        max = a;
+        min = b;
+      }
+      console.log("max: " + max);
+      console.log("min: " + min);
     </script>
-</body>
+  </body>
 </html>

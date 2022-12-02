@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        let input = prompt("registeriin dugaaraa oruulna uu.");
+        let isNumber = input.substr(2,8)
+        let toonuud = Number(isNumber);
+        if(input.length == 10){
+            if(!Number.isInteger(Number(input.charAt(0))) && !Number.isInteger(Number(input.charAt(1)))){
+                if(Number.isInteger(toonuud)){
+                    console.log("zov oruulla");
+                }else{
+                    console.log("registeriin tooonud dund useg baina.");
+                }
+            }else{
+                console.log("ta ehnii 2 oronoo useg oruulagui bn.");
+            }
+        }else{
+            console.log("ta 10 orontoi bicheegui bn.");
+        }
+    </script>
+</body>
+</html>

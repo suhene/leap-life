@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let phoneNumber = prompt("Ta utasnii dugaara oruulna uu.");
+        let rawStrNumber = phoneNumber.substr(1,11);
+        let rawNumber = Number(rawStrNumber);
+        if(!Number.isInteger(rawNumber)){
+            console.log("Toon utga oruulna uu.");
+        }else if(phoneNumber.substr(0,4) == "+976"){
+            if(phoneNumber.length == 12){
+            console.log("ta mongol ulsiin dugaarig zov oruulla");
+            }
+        }
+        else{
+            console.log("ta mongol ulsiin dugaarig buruu oruulla");
+        }
+    </script>
+</body>
+</html>

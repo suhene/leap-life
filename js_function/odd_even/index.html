@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let first = Number(prompt("Type first number: "));
+        let second = Number(prompt("Type second number: "));
+        function even(num1,num2){
+            let evenArr = [];
+            if(num1 > num2){
+                return 'first number must be lower than second number';
+            }else if( num1 == 0 || num2 == 0){
+                return 'pls enter positive numbers'
+            }else{
+                while(num1 <= num2){
+                    
+                    if(num1%2 == 0){
+                        evenArr[evenArr.length] = num1;;
+                    }
+                    num1++;
+                }
+                return evenArr;
+            }
+        }
+        function odd(num1,num2){
+            let oddArr = [];
+            if(num1 > num2){
+                return 'first number must be lower than second number';
+            }else if( num1 == 0 || num2 == 0){
+                return 'pls enter positive numbers'
+            }else{
+                while(num1 <= num2){
+                    
+                    if(num1%2 == 1){
+                        oddArr[oddArr.length] = num1;;
+                    }
+                    num1++;
+                }
+                return oddArr;
+            }
+        }
+        console.log(even(first,second));;
+        console.log(odd(first,second));;
+    </script>
+</body>
+</html>

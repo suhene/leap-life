@@ -8,24 +8,56 @@
 </head>
 <body>
     <script>
-        function max(a,b){
-            return a > b ? a : b;
-        }
-        function findNumberInArray(arrayNum,findNum){
+        let max = (a,b) => a > b ? a : b;
+        function findNumberAndStringInArray(arrayNum,findNum){
             if(Number.isInteger(arrayNum)){
                 return 'please give only array';
             }else{
                 for(let i = 0;i < arrayNum.length; i++){
                     if(arrayNum[i] == findNum){
-                        return arrayNum[i];
-                    }else{
-                        return -1;
+                        return i;
                     }
                 }
             }
+            return -1;
         }
+        let randomInterval = (a,b) =>{
+            return Math.floor((Math.random()*(a - b)) + b)
+        }
+        let averageArray = arr => {
+            let sum = 0;
+            for(let i = 0;i < arr.length;i++){
+                sum += arr[i];
+            }
+            return (sum/arr.length).toFixed(2);
+        }
+        let sumArray = arr => {
+            let sum = 0;
+            for(let i = 0;i < arr.length;i++){
+                sum += arr[i];
+            }
+            return sum;
+        }
+        let isPrime = n => {
+            let result = true;
+            for(let i = 2; i<=Math.floor(n/2); i++){
+                if(result && i%2 == 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        let upperCase = word => word.toUpperCase();
+        let lowerCase = word => word.toLowerCase();
+        console.log(upperCase('sukhbat'));
+        console.log(lowerCase('SUKHBAT'));
+        console.log(isPrime(10));
+        console.log(sumArray([5,4,3,2,1,4]));
         console.log(max(5,4));
-        console.log(findNumberInArray([5,4,3,2,1],5));
+        console.log(randomInterval(5,10));
+        console.log(averageArray([5,4,3,2,1,4]));
+        console.log(findNumberAndStringInArray([5,4,3,2,1],3));
+        console.log(findNumberAndStringInArray(['haha','hehe','hihi'],'hehe'));
     </script>
 </body>
 </html>

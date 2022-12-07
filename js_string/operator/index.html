@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let month = prompt("Month: ");
+        let year = prompt("Year: ");
+        let day = prompt("Day: ");
+        if (month.length >= 3) {
+            console.log("2 ymuu 1 orontoi oruulna uu.");
+        } else if (month.length == 1 && day.length == 1) {
+            month = 0 + month;
+            day = 0 + day;
+            if (Number(day) <= 31) {
+                if (year.length <= 4) {
+                    console.log(year + '-' + month + '-' + day);
+                } else {
+                    console.log("4 orontoi oruulna uu");
+                }
+            } else {
+                console.log("odoroo zuw oruulna uu");
+            }
+        } else if (Number(month) > 12) {
+            console.log("saraa zow oruulna uu.");
+        } else if (month.length == 1 && day.length == 2) {
+            month = 0 + month;
+            if (Number(day) <= 31) {
+                if (year.length <= 4) {
+                    console.log(year + '-' + month + '-' + day);
+                } else {
+                    console.log("4 orontoi oruulna uu");
+                }
+            } else {
+                console.log("odoroo zuw oruulna uu");
+            }
+        } else if (month.length == 2 && day.length == 2) {
+            if (Number(day) <= 31) {
+                if (year.length <= 4) {
+                    console.log(year + '-' + month + '-' + day);
+                } else {
+                    console.log("4 orontoi oruulna uu");
+                }
+            } else {
+                console.log("odoroo zuw oruulna uu");
+            }
+        }else if (month.length == 2 && day.length == 1) {
+            day = 0 + day;
+            if (Number(day) <= 31) {
+                if (year.length <= 4) {
+                    console.log(year + '-' + month + '-' + day);
+                } else {
+                    console.log("4 orontoi oruulna uu");
+                }
+            } else {
+                console.log("odoroo zuw oruulna uu");
+            }
+        }else {
+            console.log("odoroo zuw oruulna uu");
+        }
+
+    </script>
+</body>
+
+</html>

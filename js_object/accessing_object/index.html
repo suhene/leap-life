@@ -67,10 +67,10 @@
     for(let i = 0; i < students.length; i++){
         for(let j = i+1; j < students.length; j++){
             if(students[i].age == students[j].age){
-                if(!sameAge.includes[students[i].age && !sameAge.includes[students[j].age]]){
-                    sameAge.push(students[i]);
-                }else{
-                    sameAge.push(students[i],students[j])
+                if(!sameAge.includes(students[i])){
+                    sameAge.push(students[i],students[j]);
+                }else if(!sameAge.includes(students[j])){
+                    sameAge.push(students[j])
                 }
             }
         }

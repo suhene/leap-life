@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let animals = [{ type: "dog", sound: "woof" }, { type: "cow", sound: "moo" }, { type: "cat", sound: "meow" }];
+        let soundOfAnimals = list =>{
+            for(let i = 0; i < list.length; i++){
+                console.log("What does the " + animals[i].type + " say " + animals[i].sound);
+            }
+        }
+        soundOfAnimals(animals);
+    </script>
+</body>
+
+</html>

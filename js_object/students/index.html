@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let students = [
+            { name: "Гончигсумлай", birthOfYear: 1999, hobby: "морь", single: false },
+            { name: "Jaagii", birthOfYear: 1996, hobby: "black", single: true },
+            { name: "Гончиг", birthOfYear: 2009, hobby: "chicken", single: false },
+            { name: "сумлай", birthOfYear: 1994, hobby: "cow", single: false },
+        ];
+        let getAge = (list,min) => {
+            for(let i = 0; i < list.length; i++){
+                if(2022 - list[i].birthOfYear > min){
+                    console.log(list[i]);;
+                } 
+            } 
+        }
+        let getSingle = list =>{
+            for(let a = 0; a < list.length; a++){
+                if(list[a].single){
+                    console.log(list[a]);
+                }
+            }
+        }
+        let aboveTwenties = getAge(students,20);
+        console.log(aboveTwenties);
+        getSingle(students);
+    </script>
+</body>
+
+</html>

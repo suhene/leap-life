@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html {
+        background-color: #d0d0d0;
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 420px;
+    }
+
+    li {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+</style>
+<!-- <button id="myBtn">Click</button> -->
+
+
+<body>
+    <h1 style="font-size: 3.5rem;">Your Score is: <span id="scoreTarget">0</span></h1>
+    <ul></ul>
+    <script>
+        let score = 0;
+        const scoreTarget = document.querySelector('#scoreTarget');
+        scoreTarget.innerHTML = score;
+        const parent = document.querySelector('ul');
+        let randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+        let randomColor = () => {
+            const red = randomNumber(0, 255);
+            const green = randomNumber(0, 255);
+            const blue = randomNumber(0, 255);
+            return [red, green, blue];
+        }
+        let updateScore = point => {
+            score += point;
+            scoreTarget.innerHTML = score;
+        }
+        let tileCount = 4;
+
+        function getDifferentColor(colors) {
+            const random = randomNumber(0, 2);
+            const newColors = [...colors];
+            let color = newColors[random];
+            if (score <= 5) {
+                if (color > 126) {
+                    color -= 100;
+                } else {
+                    color += 100;
+                }
+            } else if (score > 5 && score <= 8) {
+                if (color > 126) {
+                    color -= 80;
+                } else {
+                    color += 80;
+                }
+            } else if (score > 8 && score <= 10) {
+                if (color > 126) {
+                    color -= 50;
+                } else {
+                    color += 50;
+                }
+            } else {
+                if (color > 126) {
+                    color -= 30;
+                } else {
+                    color += 30;
+                }
+            }
+            newColors[random] = color;
+            return `rgb(${newColors[0]},${newColors[1]},${newColors[2]})`;
+        }
+
+        let reDraw = () => {
+            parent.innerHTML = "";
+            const colors = randomColor();
+
+            const randonIndex = randomNumber(0, tileCount - 1);
+            for (let i = 0; i < tileCount; i++) {
+                const isNormal = i !== randonIndex;
+                const li = document.createElement('li');
+                if (isNormal) {
+                    li.style.backgroundColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`;
+                } else {
+                    li.style.backgroundColor = getDifferentColor(colors);
+                }
+                li.addEventListener("click", () => {
+                    if (!isNormal) {
+                        updateScore(1);
+                        reDraw();
+                    } else {
+                        updateScore(-2);
+                    }
+                });
+                parent.appendChild(li);
+                if (score > 5) {
+                    tileCount = 9;
+                    li.style.width = '130px';
+                    li.style.height = '130px';
+                }
+                if (score > 8) {
+                    tileCount = 16;
+                    li.style.width = '90px';
+                    li.style.height = '90px';
+                }
+                if (score > 10) {
+                    tileCount = 25;
+                    li.style.width = '70px';
+                    li.style.height = '70px';
+                }
+            }
+        }
+
+        reDraw();
+        // const htmlTag = document.querySelector('html');
+        // htmlTag.style.backgroundColor = randomColor();
+        // let myButton = document.getElementById('myBtn');
+        // let changeBackgroundColor = () => myButton.style = "background-color: green";
+        // myButton.addEventListener("click",randomColor);
+    </script>
+</body>
+
+</html>

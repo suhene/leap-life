@@ -34,7 +34,6 @@
     li {
         width: 200px;
         height: 200px;
-        border-radius: 5px;
         background-color: #fff;
     }
 
@@ -102,15 +101,14 @@
         let reDraw = () => {
             parent.innerHTML = "";
             const colors = randomColor();
-
             const randonIndex = randomNumber(0, tileCount - 1);
             for (let i = 0; i < tileCount; i++) {
                 const isNormal = i !== randonIndex;
                 const li = document.createElement('li');
-                if (isNormal) {
-                    li.style.backgroundColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`;
-                } else {
+                if ( i == randonIndex) {
                     li.style.backgroundColor = getDifferentColor(colors);
+                } else {
+                    li.style.backgroundColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`;
                 }
                 li.addEventListener("click", () => {
                     if (!isNormal) {
@@ -135,6 +133,15 @@
                     tileCount = 25;
                     li.style.width = '70px';
                     li.style.height = '70px';
+                } if (score > 12) {
+                    tileCount = 64;
+                    li.style.width = '43.75px';
+                    li.style.height = '43.75px';
+                }
+                if(score > 15){
+                    tileCount = 100;
+                    li.style.width = '33px';
+                    li.style.height = '33px';
                 }
             }
         }

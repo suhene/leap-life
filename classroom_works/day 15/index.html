@@ -40,18 +40,86 @@
     li:hover {
         cursor: pointer;
     }
+    .game-over-screen{
+        position: fixed;
+        left: 0;
+        top: -100%;
+        transition: 1s all;
+        right: 0;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 48px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .game-over-screen.active{
+        top: 0;
+    }
+    #gameOverTarget{
+        color: lime;
+    }
 </style>
 <!-- <button id="myBtn">Click</button> -->
 
 
 <body>
-    <h1 style="font-size: 3.5rem;">Your Score is: <span id="scoreTarget">0</span></h1>
+    <div class="game-over-screen">
+        game over
+        <div>
+            <span id="gameOverTarget">
+                0
+            </span>
+            point
+        </div>
+    </div>
+    <h2 style="font-size: 3.5rem;">Your Score is: <span id="scoreTarget">0</span></h2>
     <ul></ul>
+    <h1>00:00:00</h1>
     <script>
+        let isTimeOut = false;
         let score = 0;
+        let timer = 10;
+        let second = timer;
+        let milliseconds = 0;
+        let isGameOver = false;
         const scoreTarget = document.querySelector('#scoreTarget');
         scoreTarget.innerHTML = score;
         const parent = document.querySelector('ul');
+        const timerTarget = document.querySelector('h1');
+        const gameOverScreen = document.querySelectorAll(".game-over-screen")[0];
+        const gameOverScoreTarget = document.querySelector('span');
+        let updateTimer = () =>{
+            if(milliseconds <= 0){
+                second--;
+                milliseconds = 990;
+            }
+            milliseconds -= 10;
+            if( milliseconds <= 0 && second <= 0){
+                gameOver();
+                clearInterval(countDown);
+            }
+            let timerResult = '';
+            if(second < 10){
+                timerResult += "0";
+            }
+            timerResult += second;
+            timerResult += ":";
+            if(milliseconds < 100){
+                timerResult += "0";
+            }
+            timerResult += milliseconds;
+            timerTarget.innerHTML = timerResult;
+        }
+     let countDown = setInterval(updateTimer,10);
+     let gameOver = () =>{
+        // alert("game over: " + score);
+        gameOverScreen.classList.add("active");
+        isGameOver = true;
+     }
         let randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
         let randomColor = () => {
             const red = randomNumber(0, 255);
@@ -62,13 +130,14 @@
         let updateScore = point => {
             score += point;
             scoreTarget.innerHTML = score;
+            gameOverScoreTarget.innerHTML = score;
         }
         let tileCount = 4;
 
         function getDifferentColor(colors) {
             const random = randomNumber(0, 2);
-            const newColors = [...colors];
-            let color = newColors[random];
+            const newColors = [...colors]; // [112,232,51]
+            let color = newColors[random]; // [112]
             if (score <= 5) {
                 if (color > 126) {
                     color -= 100;
@@ -105,19 +174,25 @@
             for (let i = 0; i < tileCount; i++) {
                 const isNormal = i !== randonIndex;
                 const li = document.createElement('li');
-                if ( i == randonIndex) {
+                if (i == randonIndex) {
                     li.style.backgroundColor = getDifferentColor(colors);
                 } else {
                     li.style.backgroundColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`;
                 }
                 li.addEventListener("click", () => {
-                    if (!isNormal) {
-                        updateScore(1);
-                        reDraw();
+                    if (!isTimeOut) {
+                        if (!isNormal) {
+                            updateScore(1);
+                            second = timer;
+                            reDraw();
+                            
+                        } else {
+                            second -= 2;
+                        }
                     } else {
-                        updateScore(-2);
+                        alert("Time run out your scire is: " + score);
                     }
-                });
+                })
                 parent.appendChild(li);
                 if (score > 5) {
                     tileCount = 9;
@@ -138,15 +213,18 @@
                     li.style.width = '43.75px';
                     li.style.height = '43.75px';
                 }
-                if(score > 15){
+                if (score > 15) {
                     tileCount = 100;
                     li.style.width = '33px';
                     li.style.height = '33px';
                 }
             }
         }
-
         reDraw();
+        // setTimeout(()=>{
+        //     isTimeOut = true;
+
+        // }, 10000)
         // const htmlTag = document.querySelector('html');
         // htmlTag.style.backgroundColor = randomColor();
         // let myButton = document.getElementById('myBtn');

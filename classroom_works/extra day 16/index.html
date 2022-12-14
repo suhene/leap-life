@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        width: 50vw;
+        padding: 20px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    p {
+        background-color: black;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 48px;
+        color: #fff;
+    }
+
+    ul {
+        color: cyan;
+        list-style-type: none;
+        font-size: 2.5rem;
+    }
+</style>
+
+<body>
+
+    <input type="text" id="inputTarget">
+    <!-- <p id="testTarget"></p> -->
+    <ul id="todoTarget"></ul>
+    <script>
+        const todoTarget = document.querySelector("#todoTarget");
+        const inputTarget = document.querySelector("#inputTarget");
+        const testTarget = document.querySelector("#testTarget");
+
+        inputTarget.addEventListener("keypress", e => {
+
+            if (e.key == "Enter") {
+                const editBtn = document.createElement('button');
+                const btn = document.createElement('button');
+                const li = document.createElement('li');
+                editBtn.innerHTML = "edit";
+                btn.innerHTML = "×";
+                li.innerHTML = e.target.value;
+                todoTarget.appendChild(li);
+                li.appendChild(editBtn);
+                li.appendChild(btn);
+                e.target.value = "";
+                btn.addEventListener("click", () => {
+                    todoTarget.removeChild(li);
+                })
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-   <script>
-    let students=[
-            {
-            name: 'Сэд-Эрдэнэ',
-            age: 19,
-            gender: "male"
+  </head>
+  <body>
+    <script>
+      let students = [
+        {
+          name: "Сэд-Эрдэнэ",
+          age: 19,
+          gender: "male",
         },
-            {
-            name: 'Индра',
-            age: 19,
-            gender: "female"
+        {
+          name: "Индра",
+          age: 19,
+          gender: "female",
         },
-        
-            {
-            name: 'Хатнаа ',
-            age: 21,
-            gender: "male"
+
+        {
+          name: "Хатнаа ",
+          age: 21,
+          gender: "male",
         },
-            {
-            name: 'Тэмүsdasdүлэн',
-            age: 23,
-            gender: "male"
-        },{
-            name: 'Тэмүүлэн',
-            age: 23,
-            gender: "male"
+        {
+          name: "Тэмүsdasdүлэн",
+          age: 23,
+          gender: "male",
         },
-            {
-            name: 'Намуун',
-            age: 23,
-            gender: "female"
+        {
+          name: "Тэмүүлэн",
+          age: 23,
+          gender: "male",
         },
-    ]
-    let getCount = (list,gender) =>{
+        {
+          name: "Намуун",
+          age: 23,
+          gender: "female",
+        },
+      ];
+      let getCount = (list, gender) => {
         let count = 0;
-        for(let i = 0;i < list.length; i++){
-            if(list[i].gender == gender){
-                count++;
-            }
+        for (let i = 0; i < list.length; i++) {
+          if (list[i].gender == gender) {
+            count++;
+          }
         }
         return count;
-    }
-    let averageAge = list =>{
+      };
+      let averageAge = (list) => {
         let sum = 0;
-        for(let i = 0; i < list.length;i++){
-            sum += list[i].age;
+        for (let i = 0; i < list.length; i++) {
+          sum += list[i].age;
         }
-        return sum/list.length;
-    }
-    let femaleCount = getCount(students,'male')
-    let maleCount = getCount(students,'female')
-    let averageStudentsAge = averageAge(students);
-    // for(let i = 0; i < students.length; i++){
-    //     let input = prompt("enter lastname: ");
-    //     students[i].lastname = input ;
-    // }
-    let sameAge = [];
-    for(let i = 0; i < students.length; i++){
-        for(let j = i+1; j < students.length; j++){
-            if(students[i].age == students[j].age){
-                if(!sameAge.includes(students[i])){
-                    sameAge.push(students[i],students[j]);
-                }else if(!sameAge.includes(students[j])){
-                    sameAge.push(students[j])
-                }
+        return sum / list.length;
+      };
+      let femaleCount = getCount(students, "male");
+      let maleCount = getCount(students, "female");
+      let averageStudentsAge = averageAge(students);
+      // for(let i = 0; i < students.length; i++){
+      //     let input = prompt("enter lastname: ");
+      //     students[i].lastname = input ;
+      // }
+      let sameAge = [];
+      for (let i = 0; i < students.length; i++) {
+        for (let j = i + 1; j < students.length; j++) {
+          if (students[i].age == students[j].age) {
+            if (!sameAge.includes(students[i])) {
+              sameAge.push(students[i], students[j]);
+            } else if (!sameAge.includes(students[j])) {
+              sameAge.push(students[j]);
             }
+          }
         }
-    }
-    console.log(sameAge);
-    console.log(students);
-    console.log(`Emegtei: ${femaleCount}`);
-    console.log(`Eregtei: ${maleCount}`);
-    console.log(`Dundaj suragchdin nas: ${averageStudentsAge}`);
-   </script> 
-</body>
+      }
+      console.log(sameAge);
+      console.log(students);
+      console.log(`Emegtei: ${femaleCount}`);
+      console.log(`Eregtei: ${maleCount}`);
+      console.log(`Dundaj suragchdin nas: ${averageStudentsAge}`);
+    </script>
+  </body>
 </html>

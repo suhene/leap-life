@@ -1,0 +1,19 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-background{
+    background-color: black;
+    width: 50vw;
+    min-height: 100vh;
+    position: relative;
+}
+input{
+    width: 49.3vw;
+}
+p{
+    transition: 2s all;
+    padding-right: 10px;
+}

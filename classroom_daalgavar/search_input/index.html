@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        width: 0;
+        padding: 0;
+        transition: .3s all;
+        border: none;
+    }
+    div{
+        border-radius: 100px;
+        padding: 5px;
+        transition: .3s all;
+        border: 3px solid rgb(158, 105, 14);
+    }
+    input:focus{
+        width: 120px;
+        border: none;
+        padding: 2px;
+        outline: none;
+    }
+</style>
+
+<body>
+    <div>
+        <label for="input">
+            <i class="fa-sharp fa-solid fa-magnifying-glass" style="color: #927e35;"></i>
+        </label>
+        <input type="text" id="input" placeholder="search...">
+    </div>
+</body>
+
+</html>
